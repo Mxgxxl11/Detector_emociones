@@ -19,4 +19,4 @@ Para la librería `flask` usando `pip`, ejecuta el siguiente comando en tu termi
 ```bash
 pip install Flask
 ```
-> **Nota:** Para correr el programa simplemente dirgirse al la carpeta y ejecutar el archivo `app.py`, para acceder simplemente dirigirse a http://127.0.0.1:5000/
+> **Nota:** Para correr el programa simplemente dirgirse al la carpeta y ejecutar el archivo `app.py`, una vez esté corriendo puede acceder simplemente dirigiendose a http://127.0.0.1:5000/
