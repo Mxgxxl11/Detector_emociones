@@ -1,4 +1,4 @@
-# Detector_emociones
+# Detector Emociones
 
 ## Descripción
 Proyecto basado en un detector de emociones en texto.
