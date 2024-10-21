@@ -14,7 +14,8 @@ evaluator = make_evaluator("ia3.pmml")
 palabras_eliminar = ["muy", "yo", "tu", "nuestro", "nosotros", "somos", "ella",
                      "esta", "son", "poco", "mucho", "ademas", "incluso", "el",
                      "algo", "y", "pero", "o", "es", "tarde", "tampoco", "eres",
-                     "dia", "noche", "fue", "estoy", "estamos", "estas", "me"]
+                     "dia", "noche", "fue", "estoy", "estamos", "estas", "me",
+                     "sus", "su", "ese", "eso", "esto", "era", "eres"]
 
 signos = [",", ".", ":", ";", "!", '"', "?", "¿", "¡", "(", ")","*", "-", "_", "´", "'", "/"]
 

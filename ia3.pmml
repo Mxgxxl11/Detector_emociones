@@ -57,6 +57,8 @@
           <SimplePredicate field="Reseña" operator="equal" value="frio"/>
           <SimplePredicate field="Reseña" operator="equal" value="basura"/>
           <SimplePredicate field="Reseña" operator="equal" value="callate"/>
+          <SimplePredicate field="Reseña" operator="equal" value="rompe"/>
+          <SimplePredicate field="Reseña" operator="equal" value="cae"/>
         </CompoundPredicate>
         <ScoreDistribution value="negativa" recordCount="100000"/>
       </Node>
