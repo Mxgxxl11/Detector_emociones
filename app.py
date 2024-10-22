@@ -8,7 +8,7 @@ from flask import Flask, render_template, request, jsonify
 from jpmml_evaluator import make_evaluator
 
 app = Flask(__name__)
-evaluator = make_evaluator("ia3.pmml")
+evaluator = make_evaluator("assets/evaluator.pmml")
 
 # Lista de palabras a eliminar
 palabras_eliminar = ["muy", "yo", "tu", "nuestro", "nosotros", "somos", "ella",
