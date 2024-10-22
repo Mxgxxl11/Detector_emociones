@@ -3,7 +3,7 @@
 ## Descripción
 Proyecto basado en un detector de emociones en texto.
 
-> **Nota:** Este proyecto está desarrollado con Python y Knime.
+> **Nota:** Este proyecto está desarrollado con Python (backend), HTML(frontend) y Knime(Entrenamiento).
 
 > **⚠️ Advertencia:** Asegúrate de tener la versión correcta de las dependencias antes de ejecutar el proyecto (Java Development Kit 23, Python 3.11, Microsoft Visual C++ 2015-2019 o versiones superiores).
 
