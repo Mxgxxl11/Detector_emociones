@@ -1,6 +1,6 @@
 """
-Este módulo contiene funciones para procesar texto y eliminar palabras antes de enviarlas 
-para ser procesadas por un modelo de prediccion de emociones entrenado con Knime.
+Este archivo contiene funciones para procesar texto y eliminar palabras antes de enviarlas 
+para ser procesadas por un modelo de prediccion de emociones entrenado con KNIME.
 """
 
 import unicodedata
@@ -10,14 +10,14 @@ from jpmml_evaluator import make_evaluator
 app = Flask(__name__)
 evaluator = make_evaluator("assets/evaluator.pmml")
 
-# Lista de palabras a eliminar
-palabras_eliminar = ["muy", "yo", "tu", "nuestro", "nosotros", "somos", "ella",
-                     "esta", "son", "poco", "mucho", "ademas", "incluso", "el",
-                     "algo", "y", "pero", "o", "es", "tarde", "tampoco", "eres",
-                     "dia", "noche", "fue", "estoy", "estamos", "estas", "me",
-                     "sus", "su", "ese", "eso", "esto", "era", "eres"]
+# Inicializar la lista de palabras a eliminar
+palabras_eliminar = []
 
-signos = [",", ".", ":", ";", "!", '"', "?", "¿", "¡", "(", ")","*", "-", "_", "´", "'", "/"]
+# Leer el archivo y agregar las palabras a la lista
+with open('assets/palabras_eliminar.txt', 'r', encoding='utf-8') as file:
+    palabras_eliminar = [linea.strip() for linea in file]
+
+signos = [",", ".", ":", ";", "!", '"', "?", "¿", "¡", "(", ")","*", "-", "_", "´","¨", "'", "/"]
 
 def eliminar_acentos(palabra):
     """
@@ -46,11 +46,55 @@ def index():
         # Dividir el texto en palabras
         palabras = input_text.split()
 
+        # Filtrar "palabras" que son solo números
+        palabras = [palabra for palabra in palabras if not palabra.isdigit()]
+
         # Eliminar acentos de las palabras
         palabras = [eliminar_acentos(palabra) for palabra in palabras]
 
         # Verificar si la palabra "no" está presente
         contiene_negacion = "no" in palabras
+        prediccion_siguiente = ""
+        if contiene_negacion:
+            indice_negacion = palabras.index("no")
+            if indice_negacion +2 < len(palabras):
+                palabra_siguiente = palabras[indice_negacion +2]
+                # Aquí podrías analizar `palabra_siguiente` según sea necesario
+                if palabra_siguiente:
+                    # Realiza la evaluación de la "palabra_siguiente"
+                    arguments_siguiente = {"Reseña": palabra_siguiente}
+                    results_siguiente = evaluator.evaluate(arguments_siguiente)
+                    prediccion_siguiente = results_siguiente['Emocion']
+                    if prediccion_siguiente == "negativa":
+                        return jsonify(prediction="positiva")
+                    if prediccion_siguiente == "positiva":
+                        return jsonify(prediction="negativa")
+
+        # Verificar si la palabra "pero" está presente
+        contiene_pero = "pero" in palabras
+
+        # Verificar si la palabra "aunque" está presente
+        contiene_aunque = "aunque" in palabras
+
+        # Verificar si la palabra "demasiado" está presente
+        contiene_demasiado = "demasiado" in palabras
+        if contiene_demasiado:
+            indice_demasiado = palabras.index("demasiado")
+            if indice_demasiado +1 < len(palabras):
+                palabra_siguiente = palabras[indice_demasiado +1]
+                # Aquí podrías analizar `palabra_siguiente` según sea necesario
+                if palabra_siguiente:
+                    # Realiza la evaluación de la "palabra_siguiente"
+                    arguments_siguiente = {"Reseña": palabra_siguiente}
+                    results_siguiente = evaluator.evaluate(arguments_siguiente)
+                    prediccion_siguiente = results_siguiente['Emocion']
+                    if prediccion_siguiente == "negativa":
+                        return jsonify(prediction=prediccion_siguiente)
+                    if prediccion_siguiente == "positiva":
+                        return jsonify(prediction=prediccion_siguiente)
+
+        # Verificar si la palabra "ademas" está presente
+        contiene_ademas = "ademas" in palabras
 
         # Eliminar las palabras específicas de la lista palabras_eliminar
         palabras_filtradas = [palabra for palabra in palabras if palabra not in palabras_eliminar]
@@ -60,7 +104,7 @@ def index():
 
         predicciones = {"positiva": 0, "negativa": 0, "neutral": 0}
 
-        # Evaluar cada palabra restante
+        # Evaluar cada palabra
         for palabra in palabras_filtradas:
             arguments = {"Reseña": palabra}
             results = evaluator.evaluate(arguments)
@@ -72,24 +116,30 @@ def index():
         #Calcular las palabras negativas y postitivas
         positivas = predicciones["positiva"]
         negativas = predicciones["negativa"]
+        neutrales = predicciones["neutral"]
 
         # Condición para empate entre positivo y negativo
         if (positivas == negativas) & (positivas > 0) & (negativas > 0):
             emocion_predominante = "neutral"
 
-        elif prediction is None:
+        elif (positivas == 0) & (negativas == 0) & (neutrales == 0):
             return jsonify(prediction="No se detecta ninguna emoción en el texto")
 
         else:
             # Determinar la emoción predominante en base a la mayoría de predicciones
             emocion_predominante = max(predicciones, key=predicciones.get)
 
-        # Si se encontró la palabra "no", invertimos la predicción
-        if contiene_negacion:
-            if emocion_predominante == "positiva":
-                emocion_predominante = "negativa"
-            elif emocion_predominante == "negativa":
-                emocion_predominante = "positiva"
+        # Condicionamos segun las palabras "no" "pero" "ademas"
+        if (contiene_negacion) & (positivas == 1) & (negativas == 0):
+            emocion_predominante = "negativa"
+        elif (contiene_negacion) & (negativas == 1) & (positivas == 0):
+            emocion_predominante = "positiva"
+        elif (contiene_negacion) & (contiene_ademas) & (positivas == negativas):
+            emocion_predominante = "negativa"
+        elif (contiene_negacion) & (contiene_pero or contiene_aunque):
+            emocion_predominante = "neutral"
+        elif (contiene_pero or contiene_aunque) & (positivas == negativas):
+            emocion_predominante = "neutral"
 
         return jsonify(prediction=emocion_predominante)
 
