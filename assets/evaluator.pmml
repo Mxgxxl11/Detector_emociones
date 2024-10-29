@@ -304,6 +304,12 @@
           <SimplePredicate field="Reseña" operator="equal" value="ganaste"/>
           <SimplePredicate field="Reseña" operator="equal" value="ganamos"/>
           <SimplePredicate field="Reseña" operator="equal" value="respeto"/>
+          <SimplePredicate field="Reseña" operator="equal" value="trabajo"/>
+          <SimplePredicate field="Reseña" operator="equal" value="trabaje"/>
+          <SimplePredicate field="Reseña" operator="equal" value="trabajamos"/>
+          <SimplePredicate field="Reseña" operator="equal" value="trabajaste"/>
+          <SimplePredicate field="Reseña" operator="equal" value="trabajas"/>
+          <SimplePredicate field="Reseña" operator="equal" value="trabaja"/>
         </CompoundPredicate>
         <ScoreDistribution value="positiva" recordCount="100000"/>
       </Node>

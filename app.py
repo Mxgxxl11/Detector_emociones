@@ -101,8 +101,16 @@ def index():
         if contiene_tarde:
             indice_tarde = palabras.index("tarde")
             palabra_anterior = palabras[indice_tarde -1]
-            if palabra_anterior == "la":
+            if (palabra_anterior == "la") or (palabra_anterior == "de"):
                 palabras.pop(indice_tarde)
+
+        # Verificar si la palabra "trabajo" está presente
+        contiene_trabajo = "trabajo" in palabras
+        if contiene_trabajo:
+            indice_trabajo = palabras.index("trabajo")
+            palabra_anterior = palabras[indice_trabajo -1]
+            if (palabra_anterior == "el") or (palabra_anterior == "al"):
+                palabras.pop(indice_trabajo)
 
         # Eliminar las palabras específicas de la lista palabras_eliminar
         palabras_filtradas = [palabra for palabra in palabras if palabra not in palabras_eliminar]
