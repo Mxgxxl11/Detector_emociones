@@ -260,3 +260,5 @@ cajon
 los
 lucha
 oreja
+camioneta
+camion
