@@ -38,6 +38,7 @@
           <SimplePredicate field="Reseña" operator="equal" value="pésimo"/>
           <SimplePredicate field="Reseña" operator="equal" value="confiaba"/>
           <SimplePredicate field="Reseña" operator="equal" value="pesimo"/>
+          <SimplePredicate field="Reseña" operator="equal" value="pesima"/>
           <SimplePredicate field="Reseña" operator="equal" value="caro"/>
           <SimplePredicate field="Reseña" operator="equal" value="feo"/>
           <SimplePredicate field="Reseña" operator="equal" value="mediocre"/>
@@ -130,6 +131,17 @@
           <SimplePredicate field="Reseña" operator="equal" value="enfurecida"/>
           <SimplePredicate field="Reseña" operator="equal" value="grande"/>
           <SimplePredicate field="Reseña" operator="equal" value="costoso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="miedo"/>
+          <SimplePredicate field="Reseña" operator="equal" value="miedoso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="miedosa"/>
+          <SimplePredicate field="Reseña" operator="equal" value="inservible"/>
+          <SimplePredicate field="Reseña" operator="equal" value="vano"/>
+          <SimplePredicate field="Reseña" operator="equal" value="ingrata"/>
+          <SimplePredicate field="Reseña" operator="equal" value="ingrato"/>
+          <SimplePredicate field="Reseña" operator="equal" value="ingratitud"/>
+          <SimplePredicate field="Reseña" operator="equal" value="aburrido"/>
+          <SimplePredicate field="Reseña" operator="equal" value="aburrida"/>
+          <SimplePredicate field="Reseña" operator="equal" value="tarde"/>
         </CompoundPredicate>
         <ScoreDistribution value="negativa" recordCount="100000"/>
       </Node>
@@ -174,6 +186,7 @@
           <SimplePredicate field="Reseña" operator="equal" value="dejar"/>
           <SimplePredicate field="Reseña" operator="equal" value="hay"/>
           <SimplePredicate field="Reseña" operator="equal" value="sorprendido"/>
+          <SimplePredicate field="Reseña" operator="equal" value="sorprendida"/>
           <SimplePredicate field="Reseña" operator="equal" value="convence"/>
           <SimplePredicate field="Reseña" operator="equal" value="convencio"/>
           <SimplePredicate field="Reseña" operator="equal" value="convencido"/>
@@ -229,12 +242,18 @@
           <SimplePredicate field="Reseña" operator="equal" value="comprare"/>
           <SimplePredicate field="Reseña" operator="equal" value="sobrio"/>
           <SimplePredicate field="Reseña" operator="equal" value="encanta"/>
+          <SimplePredicate field="Reseña" operator="equal" value="encantado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="encantada"/>
+          <SimplePredicate field="Reseña" operator="equal" value="encantador"/>
+          <SimplePredicate field="Reseña" operator="equal" value="encantadora"/>
           <SimplePredicate field="Reseña" operator="equal" value="sorprende"/>
           <SimplePredicate field="Reseña" operator="equal" value="agradable"/>
           <SimplePredicate field="Reseña" operator="equal" value="sorprendente"/>
           <SimplePredicate field="Reseña" operator="equal" value="unico"/>
           <SimplePredicate field="Reseña" operator="equal" value="amable"/>
+          <SimplePredicate field="Reseña" operator="equal" value="amabilidad"/>
           <SimplePredicate field="Reseña" operator="equal" value="emocionado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="emocionada"/>
           <SimplePredicate field="Reseña" operator="equal" value="emociona"/>
           <SimplePredicate field="Reseña" operator="equal" value="emocionante"/>
           <SimplePredicate field="Reseña" operator="equal" value="rico"/>
@@ -265,6 +284,25 @@
           <SimplePredicate field="Reseña" operator="equal" value="hare"/>
           <SimplePredicate field="Reseña" operator="equal" value="guau"/>
           <SimplePredicate field="Reseña" operator="equal" value="ansioso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="belleza"/>
+          <SimplePredicate field="Reseña" operator="equal" value="bella"/>
+          <SimplePredicate field="Reseña" operator="equal" value="bello"/>
+          <SimplePredicate field="Reseña" operator="equal" value="bellisimo"/>
+          <SimplePredicate field="Reseña" operator="equal" value="bellisima"/>
+          <SimplePredicate field="Reseña" operator="equal" value="exito"/>
+          <SimplePredicate field="Reseña" operator="equal" value="exitos"/>
+          <SimplePredicate field="Reseña" operator="equal" value="exitoso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="exitosa"/>
+          <SimplePredicate field="Reseña" operator="equal" value="grato"/>
+          <SimplePredicate field="Reseña" operator="equal" value="grata"/>
+          <SimplePredicate field="Reseña" operator="equal" value="gratitud"/>
+          <SimplePredicate field="Reseña" operator="equal" value="victorioso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="victoriosa"/>
+          <SimplePredicate field="Reseña" operator="equal" value="victoria"/>
+          <SimplePredicate field="Reseña" operator="equal" value="gano"/>
+          <SimplePredicate field="Reseña" operator="equal" value="gane"/>
+          <SimplePredicate field="Reseña" operator="equal" value="ganaste"/>
+          <SimplePredicate field="Reseña" operator="equal" value="ganamos"/>
         </CompoundPredicate>
         <ScoreDistribution value="positiva" recordCount="100000"/>
       </Node>
@@ -289,7 +327,7 @@
         <ScoreDistribution value="neutral" recordCount="100000"/>
       </Node>
 
-      <!-- Nodo para emociones neutrales (faltantes) -->
+      <!-- Nodo para palabras faltantes -->
       <Node id="4" score="neutral" recordCount="100000">
         <SimplePredicate field="Reseña" operator="isMissing"/>
         <ScoreDistribution value="neutral" recordCount="100000"/>

@@ -96,6 +96,14 @@ def index():
         # Verificar si la palabra "ademas" está presente
         contiene_ademas = "ademas" in palabras
 
+        # Verificar si la palabra "tarde" está presente
+        contiene_tarde = "tarde" in palabras
+        if contiene_tarde:
+            indice_tarde = palabras.index("tarde")
+            palabra_anterior = palabras[indice_tarde -1]
+            if palabra_anterior == "la":
+                palabras.pop(indice_tarde)
+
         # Eliminar las palabras específicas de la lista palabras_eliminar
         palabras_filtradas = [palabra for palabra in palabras if palabra not in palabras_eliminar]
 

@@ -40,7 +40,6 @@ pensar
 pasar
 o
 es
-tarde
 esos
 esas
 tampoco
@@ -259,3 +258,4 @@ roca
 caja
 cajon
 los
+lucha
