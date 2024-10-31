@@ -563,7 +563,7 @@ bloqueta
 boquilla
 brazalete
 brocha
-buzón
+buzon
 caballete
 cadena
 collar
