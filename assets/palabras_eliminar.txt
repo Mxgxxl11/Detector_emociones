@@ -707,7 +707,6 @@ trataron
 camion
 caja
 alli
-tiene
 bajo
 cubiertos
 excel
