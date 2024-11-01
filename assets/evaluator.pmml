@@ -526,7 +526,7 @@
         <ScoreDistribution value="positiva" recordCount="100000"/>
       </Node>
 
-      <!-- Nodo para emociones neutrales explícitas -->
+      <!-- Nodo para emociones neutrales explicitas -->
       <Node id="3" score="neutral" recordCount="100000">
         <CompoundPredicate booleanOperator="or">
           <SimplePredicate field="Reseña" operator="equal" value="mmm"/>
