@@ -109,7 +109,7 @@ def index():
         if contiene_trabajo:
             indice_trabajo = palabras.index("trabajo")
             palabra_ant = palabras[indice_trabajo -1]
-            if palabra_ant in ("el", "al", "del", "tu"):
+            if palabra_ant in ("el", "al", "del", "tu", "mi", "su", "nuestro"):
                 palabras.pop(indice_trabajo)
 
         # Eliminar las palabras específicas de la lista palabras_eliminar

@@ -430,7 +430,6 @@
           <SimplePredicate field="Reseña" operator="equal" value="incomodidad"/>
           <SimplePredicate field="Reseña" operator="equal" value="arruinado"/>
           <SimplePredicate field="Reseña" operator="equal" value="desidia"/>
-
         </CompoundPredicate>
         <ScoreDistribution value="negativa" recordCount="100000"/>
       </Node>
