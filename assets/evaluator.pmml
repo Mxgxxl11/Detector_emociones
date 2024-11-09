@@ -629,6 +629,8 @@
           <SimplePredicate field="Reseña" operator="equal" value="hostil"/>
           <SimplePredicate field="Reseña" operator="equal" value="hostilidad"/>
           <SimplePredicate field="Reseña" operator="equal" value="hostiles"/>
+          <SimplePredicate field="Reseña" operator="equal" value="hostiles"/>
+          <SimplePredicate field="Reseña" operator="equal" value="trafico"/>
         </CompoundPredicate>
         <ScoreDistribution value="negativa" recordCount="100000"/>
       </Node>
