@@ -76,7 +76,6 @@ casillero
 avion
 tu
 lapiz
-bueno
 este
 comida
 lente
