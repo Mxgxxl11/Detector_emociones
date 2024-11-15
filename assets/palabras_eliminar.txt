@@ -309,7 +309,6 @@ ver
 joyas
 alarma
 helado
-hay
 perros
 pata
 plastico

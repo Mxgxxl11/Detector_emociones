@@ -93,8 +93,63 @@ def index():
                     if prediccion_siguiente == "positiva":
                         return jsonify(prediction=prediccion_siguiente)
 
+        # Verificar si la palabra "demasiada" está presente
+        contiene_demasiada = "demasiada" in palabras
+        if contiene_demasiada:
+            indice_demasiada = palabras.index("demasiada")
+            if indice_demasiada +1 < len(palabras):
+                palabra_siguiente = palabras[indice_demasiada +1]
+                # Aquí podrías analizar `palabra_siguiente` según sea necesario
+                if palabra_siguiente:
+                    # Realiza la evaluación de la "palabra_siguiente"
+                    arguments_siguiente = {"Reseña": palabra_siguiente}
+                    results_siguiente = evaluator.evaluate(arguments_siguiente)
+                    prediccion_siguiente = results_siguiente['Emocion']
+                    if prediccion_siguiente == "negativa":
+                        return jsonify(prediction=prediccion_siguiente)
+                    if prediccion_siguiente == "positiva":
+                        return jsonify(prediction=prediccion_siguiente)
+
         # Verificar si la palabra "ademas" está presente
         contiene_ademas = "ademas" in palabras
+
+        # Verificar si la palabra "mucho" está presente
+        contiene_mucho = "mucho" in palabras
+        if contiene_mucho:
+            indice_mucho = palabras.index("mucho")
+            palabra_ant = palabras[indice_mucho -1]
+            if palabra_ant in ("hay", "es"):
+                palabra_siguiente = palabras[indice_mucho +1]
+                if palabra_siguiente:
+                    # Realiza la evaluación de la "palabra_siguiente"
+                    arguments_siguiente = {"Reseña": palabra_siguiente}
+                    results_siguiente = evaluator.evaluate(arguments_siguiente)
+                    prediccion_siguiente = results_siguiente['Emocion']
+                    if prediccion_siguiente == "negativa":
+                        return jsonify(prediction=prediccion_siguiente)
+                    if prediccion_siguiente == "positiva":
+                        return jsonify(prediction=prediccion_siguiente)
+                if palabra_siguiente in ("trabajo", "trafico", "alboroto"):
+                    return jsonify(prediction="negativa")
+
+        # Verificar si la palabra "mucha" está presente
+        contiene_mucha = "mucha" in palabras
+        if contiene_mucha:
+            indice_mucha = palabras.index("mucha")
+            palabra_ant = palabras[indice_mucha -1]
+            if palabra_ant in ("hay", "es"):
+                palabra_siguiente = palabras[indice_mucha +1]
+                if palabra_siguiente:
+                    # Realiza la evaluación de la "palabra_siguiente"
+                    arguments_siguiente = {"Reseña": palabra_siguiente}
+                    results_siguiente = evaluator.evaluate(arguments_siguiente)
+                    prediccion_siguiente = results_siguiente['Emocion']
+                    if prediccion_siguiente == "negativa":
+                        return jsonify(prediction=prediccion_siguiente)
+                    if prediccion_siguiente == "positiva":
+                        return jsonify(prediction=prediccion_siguiente)
+                if palabra_siguiente in ("tarea", "aglomeracion", "gente"):
+                    return jsonify(prediction="negativa")
 
         # Verificar si la palabra "tarde" está presente
         contiene_tarde = "tarde" in palabras
