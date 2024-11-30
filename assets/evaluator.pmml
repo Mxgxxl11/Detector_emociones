@@ -634,9 +634,15 @@
           <SimplePredicate field="Reseña" operator="equal" value="solitario"/>
           <SimplePredicate field="Reseña" operator="equal" value="temeroso"/>
           <SimplePredicate field="Reseña" operator="equal" value="abandonado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="abandonada"/>
           <SimplePredicate field="Reseña" operator="equal" value="afliccion"/>
           <SimplePredicate field="Reseña" operator="equal" value="alarmante"/>
           <SimplePredicate field="Reseña" operator="equal" value="apenado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="abuso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="abusivo"/>
+          <SimplePredicate field="Reseña" operator="equal" value="abusiva"/>
+          <SimplePredicate field="Reseña" operator="equal" value="abusivas"/>
+          <SimplePredicate field="Reseña" operator="equal" value="abusivos"/>
           <SimplePredicate field="Reseña" operator="equal" value="atemorizante"/>
           <SimplePredicate field="Reseña" operator="equal" value="avergonzado"/>
           <SimplePredicate field="Reseña" operator="equal" value="aburrimiento"/>
@@ -665,6 +671,8 @@
           <SimplePredicate field="Reseña" operator="equal" value="perturbador"/>
           <SimplePredicate field="Reseña" operator="equal" value="perturbadores"/>
           <SimplePredicate field="Reseña" operator="equal" value="perturbadoras"/>
+          <SimplePredicate field="Reseña" operator="equal" value="pequeño"/>
+          <SimplePredicate field="Reseña" operator="equal" value="dañado"/>
         </CompoundPredicate>
         <ScoreDistribution value="negativa" recordCount="100000"/>
       </Node>

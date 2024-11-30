@@ -1,6 +1,6 @@
 body {  
-    font-family: Arial, sans-serif;  
-    background-color: #f0f0f0;  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    background-color: #e9ecef;  
     margin: 0;  
     padding: 0;  
     display: flex;  
@@ -10,59 +10,69 @@ body {
 }  
 
 .container {  
-    background-color: white;  
-    border-radius: 8px;  
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
-    padding: 20px;  
+    background-color: #ffffff;  
+    border-radius: 12px;  
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);  
+    padding: 30px;  
     text-align: center;  
-    width: 300px;  
+    width: 350px;  
 }  
 
 h1 {  
-    color: #333;  
+    color: #343a40;  
+    margin-bottom: 20px;  
 }  
 
 label {  
-    margin-bottom: 10px;  
+    margin-bottom: 8px;  
     display: block;  
-    color: #666;  
+    color: #495057;  
+    font-weight: bold;  
 }  
 
-input[type="text"] {  
+input[type="text"], input[type="file"] {  
     width: 100%;  
-    padding: 10px;  
+    padding: 12px;  
     margin-bottom: 20px;  
-    border: 1px solid #ccc;  
-    border-radius: 4px;  
+    border: 1px solid #ced4da;  
+    border-radius: 6px;  
     box-sizing: border-box;  
+    transition: border-color 0.3s;  
+}  
+
+input[type="text"]:focus, input[type="file"]:focus {  
+    border-color: #80bdff;  
+    outline: none;  
 }  
 
 button {  
-    background-color: #28a745;  
+    background-color: #007bff;  
     color: white;  
     border: none;  
-    padding: 10px 15px;  
-    border-radius: 4px;  
+    padding: 12px 20px;  
+    border-radius: 6px;  
     cursor: pointer;  
     font-size: 16px;  
+    transition: background-color 0.3s;  
 }  
 
 button:hover {  
-    background-color: #218838;  
+    background-color: #0056b3;  
 }  
 
 h2 {  
     margin-top: 20px;  
-    color: #333;  
+    color: #343a40;  
+    font-weight: normal;  
 }  
 
 /* Estilo del indicador de carga */  
 .loader {  
     display: none; /* Oculto por defecto */  
-    width: 25px;  
-    height: 25px;  
+    width: 30px;  
+    height: 30px;  
     border: 4px solid #f3f3f3; /* Color de fondo */  
-    border-top: 4px solid #3498db; /* Color del borde animado */  
+    border-top: 4px solid #007bff; /* Color del borde animado */  
     border-radius: 50%;  
     animation: spin 1s linear infinite; /* Animación de rotación */  
     margin: 10px auto; /* Centrado */  
