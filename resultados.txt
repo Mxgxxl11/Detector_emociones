@@ -395,7 +395,7 @@ repetitivo - negativa
 agitado - negativa
 --------------------------------- - No se detecta ninguna emoción en el texto
 abandonar - No se detecta ninguna emoción en el texto
-abuso - No se detecta ninguna emoción en el texto
+abuso - negativa
 acongojado - negativa
 adverso - negativa
 agonia - negativa

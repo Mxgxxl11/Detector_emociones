@@ -6,6 +6,7 @@ para ser procesadas por un modelo de prediccion de emociones entrenado con KNIME
 import unicodedata
 from flask import Flask, render_template, request, jsonify, send_file
 from jpmml_evaluator import make_evaluator
+import pandas as pd
 
 app = Flask(__name__)
 evaluator = make_evaluator("assets/evaluator.pmml")
@@ -252,9 +253,16 @@ def index():
                 archivo =  'resultados.txt'
                 with open(archivo, 'w', encoding='utf-8') as f:
                     f.writelines(lineas_resultado)
-
                 response = send_file(archivo, as_attachment=True)
+                return response
 
+            if input_file and input_file.filename.endswith('.csv'):
+                df = pd.read_csv(input_file)
+                df['Prediccion'] = df.iloc[:, 0].apply(
+                    lambda x: procesar_texto(str(x).strip().lower()))
+                archivo = 'resultados.csv'
+                df.to_csv(archivo, index=False, encoding='utf-8')
+                response = send_file(archivo, as_attachment=True, mimetype='text/csv')
                 return response
 
     return render_template("index.html")
