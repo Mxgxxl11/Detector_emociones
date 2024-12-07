@@ -35,7 +35,7 @@ document.getElementById('emotionForm').addEventListener('submit', function(event
                 } else {
                     document.getElementById('predictionResult').innerText = 'Error en la respuesta del servidor';
                 }
-            } else if (contentType && (contentType.includes('text/plain') || contentType.includes('text/csv'))) {
+            } else if (contentType && (contentType.includes('text/plain') || contentType.includes('text/csv') || contentType.includes('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'))) {
                 // Si la respuesta es un archivo (TXT, CSV o Excel)
                 const blob = new Blob([xhr.response], { type: contentType });
                 const url = URL.createObjectURL(blob);
@@ -44,6 +44,8 @@ document.getElementById('emotionForm').addEventListener('submit', function(event
                 // Determina el nombre del archivo según el tipo
                 if (contentType.includes('text/csv')) {
                     a.download = 'resultados.csv';
+                } else if (contentType.includes('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {  
+                    a.download = 'resultados.xlsx';
                 } else {
                     a.download = 'resultados.txt';
                 }
@@ -67,6 +69,7 @@ document.getElementById('emotionForm').addEventListener('submit', function(event
     if (inputFile) {
         formData.append('input_file', inputFile);
         document.body.style.backgroundColor = "#f0f0f0";
+        xhr.responseType = 'blob';
     }
     if(inputText && inputFile){
         alert("Por favor, envía solo uno: texto o archivo.");

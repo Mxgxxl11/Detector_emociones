@@ -265,6 +265,16 @@ def index():
                 response = send_file(archivo, as_attachment=True, mimetype='text/csv')
                 return response
 
+            if input_file and input_file.filename.endswith('.xlsx'):
+                df = pd.read_excel(input_file)
+                df['Prediccion'] = df.iloc[:, 0].apply(
+                    lambda x: procesar_texto(str(x).strip().lower()))
+                archivo = 'resultados.xlsx'
+                df.to_excel(archivo, index=False, engine='openpyxl')
+                tipo = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                response = send_file(archivo, as_attachment=True, mimetype=tipo)
+                return response
+
     return render_template("index.html")
 
 if __name__ == "__main__":
