@@ -70,6 +70,43 @@ def procesar_texto(input_text):
                     emocion_predominante = "negativa"
                     return emocion_predominante
 
+    contiene_negacion2 = "no" in palabras
+    if contiene_negacion2:
+        indice_negacion2 = palabras.index("no")
+        if indice_negacion2 +2 < len(palabras):
+            palabra_siguiente = palabras[indice_negacion +1]
+            # Aquí podrías analizar `palabra_siguiente` según sea necesario
+            if palabra_siguiente:
+                # Realiza la evaluación de la "palabra_siguiente"
+                arguments_siguiente = {"Reseña": palabra_siguiente}
+                results_siguiente = evaluator.evaluate(arguments_siguiente)
+                prediccion_siguiente = results_siguiente['Emocion']
+                if prediccion_siguiente == "negativa":
+                    emocion_predominante = "positiva"
+                    return emocion_predominante
+                if prediccion_siguiente == "positiva":
+                    emocion_predominante = "negativa"
+                    return emocion_predominante
+
+    # Verificar si la palabra "sin" está presente
+    contiene_sin = "sin" in palabras
+    if contiene_sin:
+        indice_sin = palabras.index("sin")
+        if indice_sin +1 < len(palabras):
+            palabra_siguiente = palabras[indice_sin +1]
+            # Aquí podrías analizar `palabra_siguiente` según sea necesario
+            if palabra_siguiente:
+                # Realiza la evaluación de la "palabra_siguiente"
+                arguments_siguiente = {"Reseña": palabra_siguiente}
+                results_siguiente = evaluator.evaluate(arguments_siguiente)
+                prediccion_siguiente = results_siguiente['Emocion']
+                if prediccion_siguiente == "negativa":
+                    emocion_predominante = "positiva"
+                    return emocion_predominante
+                if prediccion_siguiente == "positiva":
+                    emocion_predominante = "negativa"
+                    return emocion_predominante
+
     # Verificar si la palabra "pero" está presente
     contiene_pero = "pero" in palabras
 
@@ -82,6 +119,44 @@ def procesar_texto(input_text):
         indice_demasiado = palabras.index("demasiado")
         if indice_demasiado +1 < len(palabras):
             palabra_siguiente = palabras[indice_demasiado +1]
+            # Aquí podrías analizar `palabra_siguiente` según sea necesario
+            if palabra_siguiente:
+                # Realiza la evaluación de la "palabra_siguiente"
+                arguments_siguiente = {"Reseña": palabra_siguiente}
+                results_siguiente = evaluator.evaluate(arguments_siguiente)
+                prediccion_siguiente = results_siguiente['Emocion']
+                if prediccion_siguiente == "negativa":
+                    emocion_predominante = prediccion_siguiente
+                    return emocion_predominante
+                if prediccion_siguiente == "positiva":
+                    emocion_predominante = prediccion_siguiente
+                    return emocion_predominante
+
+    # Verificar si la palabra "muy" está presente
+    contiene_muy = "muy" in palabras
+    if contiene_muy:
+        indice_muy = palabras.index("muy")
+        if indice_muy +1 < len(palabras):
+            palabra_siguiente = palabras[indice_muy +1]
+            # Aquí podrías analizar `palabra_siguiente` según sea necesario
+            if palabra_siguiente:
+                # Realiza la evaluación de la "palabra_siguiente"
+                arguments_siguiente = {"Reseña": palabra_siguiente}
+                results_siguiente = evaluator.evaluate(arguments_siguiente)
+                prediccion_siguiente = results_siguiente['Emocion']
+                if prediccion_siguiente == "negativa":
+                    emocion_predominante = prediccion_siguiente
+                    return emocion_predominante
+                if prediccion_siguiente == "positiva":
+                    emocion_predominante = prediccion_siguiente
+                    return emocion_predominante
+
+    # Verificar si la palabra "llego" está presente
+    contiene_llego = "llego" in palabras
+    if contiene_llego:
+        indice_llego = palabras.index("llego")
+        if indice_llego +1 < len(palabras):
+            palabra_siguiente = palabras[indice_llego +1]
             # Aquí podrías analizar `palabra_siguiente` según sea necesario
             if palabra_siguiente:
                 # Realiza la evaluación de la "palabra_siguiente"
@@ -114,6 +189,36 @@ def procesar_texto(input_text):
                     emocion_predominante = prediccion_siguiente
                     return emocion_predominante
 
+    # Verificar si la palabra "es" está presente
+    contiene_es = "es" in palabras
+    if contiene_es:
+        indice_es = palabras.index("es")
+        if indice_es +1 < len(palabras):
+            palabra_siguiente = palabras[indice_es +1]
+            # Aquí podrías analizar `palabra_siguiente` según sea necesario
+            if palabra_siguiente:
+                # Realiza la evaluación de la "palabra_siguiente"
+                arguments_siguiente = {"Reseña": palabra_siguiente}
+                results_siguiente = evaluator.evaluate(arguments_siguiente)
+                prediccion_siguiente = results_siguiente['Emocion']
+                if prediccion_siguiente == "negativa":
+                    emocion_predominante = prediccion_siguiente
+                    return emocion_predominante
+                if prediccion_siguiente == "positiva":
+                    emocion_predominante = prediccion_siguiente
+                    return emocion_predominante
+            if palabra_siguiente in ("mas", "menos", "muy"):
+                palabra_siguiente2 = palabras[indice_es +2]
+                arguments_siguiente2 = {"Reseña": palabra_siguiente2}
+                results_siguiente2 = evaluator.evaluate(arguments_siguiente2)
+                prediccion_siguiente2 = results_siguiente2['Emocion']
+                if prediccion_siguiente2 == "negativa":
+                    emocion_predominante = prediccion_siguiente2
+                    return emocion_predominante
+                if prediccion_siguiente2 == "positiva":
+                    emocion_predominante = prediccion_siguiente2
+                    return emocion_predominante
+
     # Verificar si la palabra "ademas" está presente
     contiene_ademas = "ademas" in palabras
 
@@ -134,6 +239,17 @@ def procesar_texto(input_text):
                     return emocion_predominante
                 if prediccion_siguiente == "positiva":
                     emocion_predominante = prediccion_siguiente
+                    return emocion_predominante
+            if palabra_siguiente in ("mas", "menos"):
+                palabra_siguiente2 = palabras[indice_mucho +2]
+                arguments_siguiente2 = {"Reseña": palabra_siguiente2}
+                results_siguiente2 = evaluator.evaluate(arguments_siguiente2)
+                prediccion_siguiente2 = results_siguiente2['Emocion']
+                if prediccion_siguiente2 == "negativa":
+                    emocion_predominante = prediccion_siguiente2
+                    return emocion_predominante
+                if prediccion_siguiente2 == "positiva":
+                    emocion_predominante = prediccion_siguiente2
                     return emocion_predominante
             if palabra_siguiente in ("trabajo", "trafico", "alboroto"):
                 emocion_predominante = "negativa"
@@ -203,9 +319,6 @@ def procesar_texto(input_text):
     # Condicionamos segun las palabras "no" "pero" "ademas"
     if (contiene_negacion) & (positivas == 1) & (negativas == 0):
         emocion_predominante = "negativa"
-        return emocion_predominante
-    if (contiene_negacion) & (negativas == 1) & (positivas == 0):
-        emocion_predominante = "positiva"
         return emocion_predominante
     if (contiene_negacion) & (contiene_ademas) & (positivas == negativas):
         emocion_predominante = "negativa"

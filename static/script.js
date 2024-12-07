@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const inputText = document.getElementById("input_text");
+    const inputFile = document.getElementById("input_file");
+
+    // Detecta cambios en el campo de texto
+    inputText.addEventListener("input", () => {
+        if (inputText.value.trim() !== "") {
+            inputFile.value = ""; // Limpia el campo de archivo
+        }
+    });
+
+    // Detecta cambios en el campo de archivo
+    inputFile.addEventListener("change", () => {
+        if (inputFile.files.length > 0) {
+            inputText.value = ""; // Limpia el campo de texto
+        }
+    });
+});
+
 document.getElementById('emotionForm').addEventListener('submit', function(event) {  
     event.preventDefault(); // Evita el envío del formulario normal  
 
