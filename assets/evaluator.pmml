@@ -1731,6 +1731,73 @@
           <SimplePredicate field="Reseña" operator="equal" value="protege"/>
           <SimplePredicate field="Reseña" operator="equal" value="buena"/>
           <SimplePredicate field="Reseña" operator="equal" value="calidad"/>
+<SimplePredicate field="Reseña" operator="equal" value="elegancia"/>
+          <SimplePredicate field="Reseña" operator="equal" value="innovadores"/>
+          <SimplePredicate field="Reseña" operator="equal" value="minucioso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="simple"/>
+          <SimplePredicate field="Reseña" operator="equal" value="radiente"/>
+          <SimplePredicate field="Reseña" operator="equal" value="atemporal"/>
+          <SimplePredicate field="Reseña" operator="equal" value="portatil"/>
+          <SimplePredicate field="Reseña" operator="equal" value="refinado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="silencioso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="ecologico"/>
+          <SimplePredicate field="Reseña" operator="equal" value="prodigioso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="fino"/>
+          <SimplePredicate field="Reseña" operator="equal" value="confortable"/>
+          <SimplePredicate field="Reseña" operator="equal" value="realista"/>
+          <SimplePredicate field="Reseña" operator="equal" value="super"/>
+          <SimplePredicate field="Reseña" operator="equal" value="magnifico"/>
+          <SimplePredicate field="Reseña" operator="equal" value="preciso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="alto"/>
+          <SimplePredicate field="Reseña" operator="equal" value="exacto"/>
+          <SimplePredicate field="Reseña" operator="equal" value="fiable"/>
+          <SimplePredicate field="Reseña" operator="equal" value="divino"/>
+          <SimplePredicate field="Reseña" operator="equal" value="detallado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="poderoso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="premium"/>
+          <SimplePredicate field="Reseña" operator="equal" value="robusta"/>
+          <SimplePredicate field="Reseña" operator="equal" value="robusto"/>
+          <SimplePredicate field="Reseña" operator="equal" value="estetico"/>
+          <SimplePredicate field="Reseña" operator="equal" value="suave"/>
+          <SimplePredicate field="Reseña" operator="equal" value="versatil"/>
+          <SimplePredicate field="Reseña" operator="equal" value="moderno"/>
+          <SimplePredicate field="Reseña" operator="equal" value="resistente"/>
+          <SimplePredicate field="Reseña" operator="equal" value="esplendido"/>
+          <SimplePredicate field="Reseña" operator="equal" value="esplendida"/>
+          <SimplePredicate field="Reseña" operator="equal" value="apasionante"/>
+          <SimplePredicate field="Reseña" operator="equal" value="atractivo"/>
+          <SimplePredicate field="Reseña" operator="equal" value="atractiva"/>
+          <SimplePredicate field="Reseña" operator="equal" value="fiel"/>
+          <SimplePredicate field="Reseña" operator="equal" value="personalizado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="sublime"/>
+          <SimplePredicate field="Reseña" operator="equal" value="avanzado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="equelibrado"/>
+          <SimplePredicate field="Reseña" operator="equal" value="sensacional"/>
+          <SimplePredicate field="Reseña" operator="equal" value="divertido"/>
+          <SimplePredicate field="Reseña" operator="equal" value="pulcro"/>
+          <SimplePredicate field="Reseña" operator="equal" value="exclusivo"/>
+          <SimplePredicate field="Reseña" operator="equal" value="sustancional"/>
+          <SimplePredicate field="Reseña" operator="equal" value="impoluto"/>
+          <SimplePredicate field="Reseña" operator="equal" value="vibrante"/>
+          <SimplePredicate field="Reseña" operator="equal" value="magistral"/>
+          <SimplePredicate field="Reseña" operator="equal" value="armonico"/>
+          <SimplePredicate field="Reseña" operator="equal" value="minimalista"/>
+          <SimplePredicate field="Reseña" operator="equal" value="natural"/>
+          <SimplePredicate field="Reseña" operator="equal" value="sobresaliente"/>
+          <SimplePredicate field="Reseña" operator="equal" value="exquisito"/>
+          <SimplePredicate field="Reseña" operator="equal" value="transparente"/>
+          <SimplePredicate field="Reseña" operator="equal" value="vistoso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="integral"/>
+          <SimplePredicate field="Reseña" operator="equal" value="esencial"/>
+          <SimplePredicate field="Reseña" operator="equal" value="espacioso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="pristino"/>
+          <SimplePredicate field="Reseña" operator="equal" value="inolvidable"/>
+          <SimplePredicate field="Reseña" operator="equal" value="relevante"/>
+          <SimplePredicate field="Reseña" operator="equal" value="original"/>
+          <SimplePredicate field="Reseña" operator="equal" value="precioso"/>
+          <SimplePredicate field="Reseña" operator="equal" value="liviano"/>
+          <SimplePredicate field="Reseña" operator="equal" value="generosa"/>
+          <SimplePredicate field="Reseña" operator="equal" value="artesanal"/>
         </CompoundPredicate>
         <ScoreDistribution value="positiva" recordCount="100000"/>
       </Node>
