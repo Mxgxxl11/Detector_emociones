@@ -1731,7 +1731,7 @@
           <SimplePredicate field="Reseña" operator="equal" value="protege"/>
           <SimplePredicate field="Reseña" operator="equal" value="buena"/>
           <SimplePredicate field="Reseña" operator="equal" value="calidad"/>
-<SimplePredicate field="Reseña" operator="equal" value="elegancia"/>
+          <SimplePredicate field="Reseña" operator="equal" value="elegancia"/>
           <SimplePredicate field="Reseña" operator="equal" value="innovadores"/>
           <SimplePredicate field="Reseña" operator="equal" value="minucioso"/>
           <SimplePredicate field="Reseña" operator="equal" value="simple"/>
@@ -1754,7 +1754,6 @@
           <SimplePredicate field="Reseña" operator="equal" value="divino"/>
           <SimplePredicate field="Reseña" operator="equal" value="detallado"/>
           <SimplePredicate field="Reseña" operator="equal" value="poderoso"/>
-          <SimplePredicate field="Reseña" operator="equal" value="premium"/>
           <SimplePredicate field="Reseña" operator="equal" value="robusta"/>
           <SimplePredicate field="Reseña" operator="equal" value="robusto"/>
           <SimplePredicate field="Reseña" operator="equal" value="estetico"/>
