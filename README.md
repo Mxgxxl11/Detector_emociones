@@ -19,3 +19,18 @@ Para instalar la librería `flask` usando `pip`, ejecuta el siguiente comando en
 ```bash
 pip install Flask
 ```
+
+Para instalar la librería `langdetect` usando `pip`, ejecuta el siguiente comando en tu terminal:
+```bash
+pip install langdetect
+```
+
+Para instalar la librería `googletrans` usando `pip`, ejecuta el siguiente comando en tu terminal:
+```bash
+pip install googletrans==4.0.0-rc1
+```
+
+Para instalar la librería `Pandas` usando `pip`, ejecuta el siguiente comando en tu terminal:
+```bash
+pip install pandas
+```

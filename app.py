@@ -6,6 +6,8 @@ para ser procesadas por un modelo de prediccion de emociones entrenado con KNIME
 import unicodedata
 from flask import Flask, render_template, request, jsonify, send_file
 from jpmml_evaluator import make_evaluator
+from langdetect import detect, DetectorFactory
+from googletrans import Translator
 import pandas as pd
 
 app = Flask(__name__)
@@ -13,6 +15,22 @@ evaluator = make_evaluator("assets/evaluator.pmml")
 
 # Inicializar la lista de palabras a eliminar
 palabras_eliminar = []
+
+# Para hacer la detección de idioma consistente
+DetectorFactory.seed = 0
+
+# Inicializa el traductor
+translator = Translator()
+
+def traducir_a_espanol(texto):
+    """
+    Traduce el texto de entrada a español.
+    """
+    try:
+        traduccion = translator.translate(texto, dest='es')
+        return traduccion.text
+    except (ValueError, TypeError):
+        return texto  # Retorna el texto original en caso de error
 
 # Leer el archivo y agregar las palabras a la lista
 with open('assets/palabras_eliminar.txt', 'r', encoding='utf-8') as file:
@@ -36,6 +54,11 @@ def procesar_texto(input_text):
     if input_text == "":
         emocion_predominante = "No se ha introducido ninguna oración"
         return emocion_predominante
+
+    # Detectar el idioma
+    idioma = detect(input_text)
+    if idioma != 'es':
+        input_text = traducir_a_espanol(input_text)
 
     # Recorremos la lista y eliminamos cada signo en la oración
     for signo in signos:
