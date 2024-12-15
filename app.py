@@ -55,11 +55,6 @@ def procesar_texto(input_text):
         emocion_predominante = "No se ha introducido ninguna oración"
         return emocion_predominante
 
-    # Detectar el idioma
-    idioma = detect(input_text)
-    if idioma != 'es':
-        input_text = traducir_a_espanol(input_text)
-
     # Recorremos la lista y eliminamos cada signo en la oración
     for signo in signos:
         input_text = input_text.replace(signo, "")
@@ -376,6 +371,10 @@ def index():
     if request.method == "POST":
         if 'input_text' in request.form:
             input_text = request.form["input_text"].lower()
+            # Detectar el idioma
+            idioma = detect(input_text)
+            if idioma != 'es':
+                input_text = traducir_a_espanol(input_text)
             emocion_predominante = procesar_texto(input_text)
             return jsonify(prediction=emocion_predominante)
         if 'input_file' in request.files:
