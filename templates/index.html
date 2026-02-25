@@ -1,25 +1,83 @@
-<!DOCTYPE html>  
-<html lang="es">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Predicción de Emoción</title>  
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">   
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Emociones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-</head>  
-<body>  
-    <div class="container">  
-        <h1>Predicción de Emoción</h1>  
-        <form id="emotionForm" enctype="multipart/form-data">  
-            <label for="input_text">Ingresa una oración:</label>  
-            <input type="text" id="input_text" name="input_text" placeholder="Escribe aqui..." autocomplete="off">  
-            <label for="input_file">O sube un archivo:</label>
-            <input type="file" id="input_file" name="input_file" accept=".txt,.csv,.xlsx" autocomplete="off"> 
-            <button type="submit">Predecir</button>  
-        </form>  
-        <div class="loader" id="loader"></div> <!-- Indicador de carga -->  
-        <h2 id="predictionResult"></h2>  
-    </div>  
-    <script src="{{ url_for('static', filename='script.js') }}"></script>  
-</body>  
+</head>
+<body>
+
+    <div id="toast" class="toast" role="alert"></div>
+
+    <main class="wrapper">
+        <div class="card">
+
+            <header class="card__header">
+                <div class="card__badge">Análisis de Texto</div>
+                <h1 class="card__title">Detector de Emociones</h1>
+                <p class="card__subtitle">Introduce una oración o carga un archivo para identificar la emoción predominante.</p>
+            </header>
+
+            <form id="emotionForm" enctype="multipart/form-data" novalidate>
+
+                <div class="field">
+                    <label class="field__label" for="input_text">Texto a analizar</label>
+                    <input
+                        class="field__input"
+                        type="text"
+                        id="input_text"
+                        name="input_text"
+                        placeholder="Escribe una oración..."
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="divider">
+                    <span class="divider__text">o</span>
+                </div>
+
+                <div class="field">
+                    <label class="field__label" for="input_file">Cargar archivo</label>
+                    <label class="upload-zone" id="uploadZone" for="input_file">
+                        <input
+                            type="file"
+                            id="input_file"
+                            name="input_file"
+                            accept=".txt,.csv,.xlsx"
+                            autocomplete="off"
+                        >
+                        <div class="upload-zone__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17 8 12 3 7 8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                        </div>
+                        <span class="upload-zone__main" id="uploadLabel">Seleccionar archivo</span>
+                        <span class="upload-zone__sub">TXT, CSV o XLSX</span>
+                    </label>
+                </div>
+
+                <button class="btn" type="submit" id="submitBtn">
+                    <span class="btn__text">Analizar</span>
+                    <span class="btn__loader" id="loader" aria-hidden="true"></span>
+                </button>
+
+            </form>
+
+            <div class="result" id="resultBox" aria-live="polite">
+                <span class="result__label">Resultado</span>
+                <span class="result__badge" id="predictionResult"></span>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
 </html>
